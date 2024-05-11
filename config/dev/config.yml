@@ -2,7 +2,7 @@ app:
   port: 4001
 
 db:
-  host: "localhost"
+  host: "mysql.chon.host"
   port: 3306
   username: "admin"
   password: "1234"
