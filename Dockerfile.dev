@@ -17,17 +17,20 @@ COPY . .
 RUN go mod download
 RUN go build -o main .
 
-# Start a new stage from scratch
-FROM alpine:latest  
-
 # Set necessary environment variables
 ENV ENVIRONMENT=dev
+
+# Start a new stage from scratch
+FROM alpine:latest  
 
 # Copy the binary file from the previous stage
 COPY --from=build /app/main .
 
+ENV ENVIRONMENT=dev
+
 # Expose port 8080 to the outside world
 EXPOSE $PORT
+
 
 # Command to run the executable
 CMD ["./main"]
