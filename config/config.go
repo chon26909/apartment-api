@@ -35,7 +35,7 @@ func InitConfig() *Config {
 		env = "local"
 	}
 
-	configPath := filepath.Join("configs", env)
+	configPath := filepath.Join("config", env)
 	configName := "config"
 
 	viper.SetConfigName(configName)
