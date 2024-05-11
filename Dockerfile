@@ -25,6 +25,7 @@ ENV PORT=8080
 
 # Copy the binary file from the previous stage
 COPY --from=build /app/main .
+COPY --from=build /app/config .
 
 # Expose port 8080 to the outside world
 EXPOSE $PORT
