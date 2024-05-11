@@ -25,6 +25,7 @@ FROM alpine:latest
 
 # Copy the binary file from the previous stage
 COPY --from=build /app/main .
+COPY --from=build /app/config .
 
 ENV ENVIRONMENT=dev
 
