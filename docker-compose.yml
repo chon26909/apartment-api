@@ -1,19 +1,31 @@
-version: '3.9'
-
 services:
-  mysql:
-    container_name: db
-    image: 'mysql:8'
+
+   api:
+    image: chon26909/apartment-api:latest
+    container_name: apartment-api
     ports:
-      - '3306:3306'
-    environment:
-      - MYSQL_ROOT_PASSWORD=1234
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=1234
-      - MYSQL_DATABASE=apartment
-    volumes: 
-      - ./data:/var/lib/mysql
-    restart: unless-stopped
+      - 4001:4001
+    expose:
+      - 4001
+    restart: always
+
+networks:
+  default:
+    name: app
+
+  # mysql:
+  #   container_name: db
+  #   image: 'mysql:8'
+  #   ports:
+  #     - '3306:3306'
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=1234
+  #     - MYSQL_USER=admin
+  #     - MYSQL_PASSWORD=1234
+  #     - MYSQL_DATABASE=apartment
+  #   volumes: 
+  #     - ./data:/var/lib/mysql
+  #   restart: unless-stopped
 
   # redis:
   #   image: redis:7
@@ -96,14 +108,14 @@ services:
   #     KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka0:29092
   #   restart: unless-stopped
 
-volumes:
-  redis_data:
-    external: true
-  mysql_data:
-    external: true
-  elasticsearch_data:
-    external: true
-  kibana_data:
-    external: true
-  kafka_data:
-    external: true
+# volumes:
+#   redis_data:
+#     external: true
+#   mysql_data:
+#     external: true
+#   elasticsearch_data:
+#     external: true
+#   kibana_data:
+#     external: true
+#   kafka_data:
+#     external: true
