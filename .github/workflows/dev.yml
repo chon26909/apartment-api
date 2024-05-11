@@ -24,7 +24,7 @@ jobs:
         uses: docker/build-push-action@v5.3.0
         with:
           context: .
-          file: ./Dockerfile
+          file: ./Dockerfile.dev
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/apartment-api:${{ github.run_number }}, ${{ secrets.DOCKERHUB_USERNAME }}/apartment-api:latest
 
