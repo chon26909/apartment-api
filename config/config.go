@@ -2,6 +2,8 @@ package config
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
 
 	"github.com/spf13/viper"
 )
@@ -27,9 +29,18 @@ var config *Config
 
 func InitConfig() *Config {
 
-	viper.SetConfigName("config")
+	// Load configuration based on environment
+	env := os.Getenv("ENVIRONMENT")
+	if env == "" {
+		env = "local"
+	}
+
+	configPath := filepath.Join("configs", env)
+	configName := "config"
+
+	viper.SetConfigName(configName)
+	viper.AddConfigPath(configPath)
 	viper.SetConfigType("yml")
-	viper.AddConfigPath("./config")
 	viper.AutomaticEnv()
 
 	// viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
