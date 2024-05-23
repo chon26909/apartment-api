@@ -20,7 +20,6 @@ func NewHealthHandler(healthService services.IHealthService) IHealthHandler {
 }
 
 func (h *healthHandler) HealthCheck(ctx echo.Context) error {
-
 	response, err := h.healthService.HealthCheck()
 	if err != nil {
 		return err

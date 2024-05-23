@@ -52,16 +52,16 @@ func InitConfig() *Config {
 
 	viper.WatchConfig()
 
-	fmt.Printf("address %v \n", &config)
-	fmt.Printf("config %v \n", config)
+	// fmt.Printf("address %v \n", &config)
+	// fmt.Printf("config %v \n", config)
 
 	err = viper.Unmarshal(&config)
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Printf("after address %v \n", &config)
-	fmt.Printf("after config %v \n", config)
+	// fmt.Printf("after address %v \n", &config)
+	// fmt.Printf("after config %v \n", config)
 
 	return config
 }

@@ -8,6 +8,7 @@ require github.com/spf13/viper v1.18.2
 
 require (
 	github.com/go-sql-driver/mysql v1.7.0 // indirect
+	github.com/golang-jwt/jwt/v5 v5.2.1
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/rogpeppe/go-internal v1.12.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
